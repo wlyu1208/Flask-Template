@@ -1,0 +1,9 @@
+flask >= 2.1.0
+flask-restx
+flask-sqlalchemy
+flask-migrate
+sqlalchemy
+sqlalchemy-utils
+redis
+python-dotenv
+gunicorn
