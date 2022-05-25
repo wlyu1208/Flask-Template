@@ -17,7 +17,6 @@ dictConfig({
 })
 
 from flask import Flask
-
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -38,5 +37,12 @@ def create_app(test_config=None):
 
     db.init_app(app)
     migrate.init_app(app, db)
+
+    from .controller import create_endpoints
+    create_endpoints(app)
+
+    app.logger.info('flask template start')
+
+    return app
 
     
