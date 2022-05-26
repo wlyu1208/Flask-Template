@@ -17,7 +17,7 @@ def create_endpoints(app):
     def hello():
         return 'This is Flask Template'
     
-    from .TemplateController import Template
+    from .template_controller import Template
 
     api.add_namespace(Template, '/template')
 

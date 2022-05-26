@@ -1,10 +1,10 @@
-TEMP_FLASK_APP=template
-TEMP_FLASK_ENV=development
+FLASK_APP=flaskapp
+FLASK_ENV=development
 TEMP_DATABASE_HOST=localhost
 TEMP_DATABASE_PORT=5432
 TEMP_DATABASE_USER=user
 TEMP_DATABASE_PASSWORD=0000
-TEMP_DATABASE_NAME=Temproary-Database
+TEMP_DATABASE_NAME=template_db
 
 # if use redis
 # QUEUE_TYPE=redis
