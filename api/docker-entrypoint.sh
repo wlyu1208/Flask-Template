@@ -13,4 +13,4 @@ then
     flask db upgrade
 fi
 
-gunicorn -b 0.0.0.0:5000 -w 2 --timeout=30 --log-level=DEBUG "flaskapp:create_app()"
+gunicorn -b 0.0.0.0:5000 -w 2 --timeout=30 --preload "flaskapp:create_app()"

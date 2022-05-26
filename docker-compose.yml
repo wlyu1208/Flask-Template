@@ -1,4 +1,4 @@
-versions: "3"
+version: "3"
 
 services:
   db:
@@ -7,23 +7,20 @@ services:
     restart: always
     env_file:
       - ./env/template.env
+    ports:
+      - 5432:5432
   pgadmin:
     image: dpage/pgadmin4
     restart: always
     env_file:
      - ./env/template.env
     ports:
-     - 5432:5432
+     - 5050:80
     depends_on:
       - db
-  # if use redis
-  # redis:
-  #   image: redis:latest
-  #   ports:
-  #     - 6379:6379
   flaskservice:
     build: ./api
-    # image: 
+    # image: flask-template_flaskservice:latest
     ports: 
       - 5000:5000
     env_file:
@@ -31,7 +28,23 @@ services:
     depends_on:
       - db
       - pgadmin
-      # - redis
+
+  # if use redis
+  # redis:
+  #   image: redis:latest
+  #   ports:
+  #     - 6379:6379
+  # flaskservice:
+  #   build: ./api
+  #   # image: 
+  #   ports: 
+  #     - 5000:5000
+  #   env_file:
+  #     - ./env/template.env
+  #   depends_on:
+  #     - db
+  #     - pgadmin
+  #     # - redis
   
     
     
