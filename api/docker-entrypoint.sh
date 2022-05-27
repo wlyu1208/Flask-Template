@@ -1,13 +1,13 @@
 dockerize -wait tcp://db:5432 -timeout 20s
 
-if [ $IS_INIT -eq 1 ]
+if [ $DB_STATUS -eq 1 ]
 then
     flask storage init
     flask db init
-    env IS_INIT=0
+    env DB_STATUS=0
     flask db migrate
     flask db upgrade
-elif [ $IS_INIT -eq 2 ]
+elif [ $DB_STATUS -eq 2 ]
 then
     flask db migrate
     flask db upgrade
